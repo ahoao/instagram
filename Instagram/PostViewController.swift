@@ -4,13 +4,12 @@ import SVProgressHUD
 
 class PostViewController: UIViewController {
     var image: UIImage!
-    
+
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textField: UITextField!
-    
-    
+
+    // 投稿ボタンをタップしたときに呼ばれるメソッド
     @IBAction func handlePostButton(_ sender: Any) {
-        
         // 画像をJPEG形式に変換する
         let imageData = image.jpegData(compressionQuality: 0.75)
         // 画像と投稿データの保存場所を定義する
@@ -44,29 +43,19 @@ class PostViewController: UIViewController {
             UIApplication.shared.windows.first{ $0.isKeyWindow }?.rootViewController?.dismiss(animated: true, completion: nil)
         }
     }
-    
+
+
+    // キャンセルボタンをタップしたときに呼ばれるメソッド
     @IBAction func handleCancelButton(_ sender: Any) {
         // 加工画面に戻る
         self.dismiss(animated: true, completion: nil)
     }
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // 受け取った画像をImageViewに設定する
         imageView.image = image
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+
 }
