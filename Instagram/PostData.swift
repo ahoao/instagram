@@ -17,8 +17,8 @@ class PostData: NSObject {
     var likes: [String] = []
     var isLiked: Bool = false
     
-    var comment: String
-    var commentname: String
+    var comment: String?
+
 
     init(document: QueryDocumentSnapshot) {
         self.id = document.documentID
@@ -43,9 +43,9 @@ class PostData: NSObject {
             }
         }
         
-        self.comment = postDic["comment"] as! String
+        self.comment = postDic["comment"] as? String
         
-        self.commentname = postDic["commentname"] as! String
+
         
     }
 
