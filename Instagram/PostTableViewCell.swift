@@ -60,9 +60,15 @@ class PostTableViewCell: UITableViewCell {
 //        コメントの表示
         
         
-        if postData.isCommented {
-              self.commentLabel.text = "\(postData.comment)"
-          }
+//        if postData.isCommented {
+        var commentText = ""
+        for comment in postData.comment {
+            commentText += comment
+        }
+            self.commentLabel.text = commentText
+            
+        
+
         
         
     }

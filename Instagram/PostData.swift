@@ -44,7 +44,10 @@ class PostData: NSObject {
             }
         }
         
-        if let comment = postDic["comment"] as? [String] {
+        if self.comment.count > 0 {
+           self.isCommented = true
+        }
+        if let comment = postDic["comments"] as? [String] {
         self.comment = comment
 
         }
