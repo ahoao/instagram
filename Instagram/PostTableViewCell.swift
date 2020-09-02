@@ -33,6 +33,7 @@ class PostTableViewCell: UITableViewCell {
 
         // キャプションの表示
         self.captionLabel.text = "\(postData.name!) : \(postData.caption!)"
+        
 
         // 日時の表示
         self.dateLabel.text = ""
@@ -55,6 +56,15 @@ class PostTableViewCell: UITableViewCell {
             let buttonImage = UIImage(named: "like_none")
             self.likeButton.setImage(buttonImage, for: .normal)
         }
+        
+//        コメントの表示
+        
+        
+        if postData.isCommented {
+              self.commentLabel.text = "\(postData.comment)"
+          }
+        
+        
     }
     
 }

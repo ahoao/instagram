@@ -1,5 +1,6 @@
 import UIKit
 import Firebase
+import SVProgressHUD
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -7,6 +8,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     // 投稿データを格納する配列
     var postArray: [PostData] = []
+    var commentArray: [PostData] = []
     
     // Firestoreのリスナー
     var listener: ListenerRegistration!
@@ -116,14 +118,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                
                // 配列からタップされたインデックスのデータを取り出す
                let postData = postArray[indexPath!.row]
-        
+
         commentViewController.postData = postData
         
         
         self.present(commentViewController, animated: true, completion: nil)
        
-//        // 加工画面に戻る
-//        self.dismiss(animated: true, completion: nil)
+
     }
     
 }

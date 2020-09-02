@@ -16,8 +16,9 @@ class PostData: NSObject {
     var date: Date?
     var likes: [String] = []
     var isLiked: Bool = false
+    var isCommented: Bool = false
     
-    var comment: String?
+    var comment: [String] = []
 
 
     init(document: QueryDocumentSnapshot) {
@@ -43,10 +44,13 @@ class PostData: NSObject {
             }
         }
         
-        self.comment = postDic["comment"] as? String
+        if let comment = postDic["comment"] as? [String] {
+        self.comment = comment
+
+        }
         
 
-        
+
     }
 
 }
